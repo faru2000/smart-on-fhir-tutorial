@@ -44,7 +44,7 @@
           var diastolicbp = getBloodPressureValue(byCodes('85354-9'),'8462-4');
           var hdl = byCodes('2085-9');
           var ldl = byCodes('2089-1');
-          var tmp = byCodes('8310-5');
+          var temps = byCodes('8310-5');
 
           var p = defaultPatient();
           p.birthdate = patient.birthDate;
@@ -52,7 +52,7 @@
           p.fname = fname;
           p.lname = lname;
           p.height = getQuantityValueAndUnit(height[0]);
-          p.tmp    = getQuantityValueAndUnit(tmp[0]);
+     
 
           if (typeof systolicbp != 'undefined')  {
             p.systolicbp = systolicbp;
@@ -64,7 +64,7 @@
 
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
-
+          p.temp = getQuantityValueAndUnit(temps[0]);
           ret.resolve(p);
         });
       } else {
@@ -88,7 +88,7 @@
       diastolicbp: {value: ''},
       ldl: {value: ''},
       hdl: {value: ''},
-      tmp: {value: ''},
+      temp: {value: ''},
     };
   }
 
@@ -132,7 +132,7 @@
     $('#diastolicbp').html(p.diastolicbp);
     $('#ldl').html(p.ldl);
     $('#hdl').html(p.hdl);
-    $('#tmp').html(p.tmp);
+    $('#temperature').html(p.temp);
   };
 
 })(window);
